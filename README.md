@@ -72,7 +72,7 @@ A modern, feature-rich form builder and management application built with React 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Prabhsingh0401/Form-Builder.git
+git clone [https://github.com/Prabhsingh0401/Form-Builder.git](https://github.com/Prabhsingh0401/Form-Builder-Remix.git)
 cd form-builder
 ```
 
