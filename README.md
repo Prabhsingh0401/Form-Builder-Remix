@@ -3,6 +3,7 @@
 A modern, feature-rich form builder and management application built with React Remix. Create, share, and collect responses with a clean, intuitive interface.
 
 **Live Demo:** [https://form-builder-alpha-ten.vercel.app/](https://form-builder-alpha-ten.vercel.app/)
+**Video Demo:** [https://youtu.be/2URwDjsSQgk/](https://youtu.be/2URwDjsSQgk/)
 
 ![image](https://github.com/user-attachments/assets/97f72dc5-aba0-4d5d-af95-0630cbfa4425)
 

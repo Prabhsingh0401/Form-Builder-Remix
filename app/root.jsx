@@ -10,7 +10,6 @@ export const meta = () => {
 
 export const links = () => [
   { rel: "stylesheet", href: "/app/tailwind.css" },
-  { rel: "icon", href: "/logo-light.png", type: "image/png" },
 ];
 
 export default function App() {

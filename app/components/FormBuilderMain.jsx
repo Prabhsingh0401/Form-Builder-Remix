@@ -121,7 +121,6 @@ const FormBuilder = ({ setAppDarkMode }) => {
   const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
   
-  // Sync dark mode with app-level state
   useEffect(() => {
     if (setAppDarkMode) {
       setAppDarkMode(darkMode);
@@ -152,11 +151,9 @@ const FormBuilder = ({ setAppDarkMode }) => {
 
   const [state, dispatch] = useReducer(formReducer, initialState);
 
-  // Load custom templates
   useEffect(() => {
     try {
       const customTemplates = JSON.parse(localStorage.getItem('customFormTemplates') || '{}');
-      // Merge with built-in templates, but don't overwrite built-in ones
       Object.entries(customTemplates).forEach(([key, template]) => {
         if (!FORM_TEMPLATES[key]) {
           FORM_TEMPLATES[key] = template;
@@ -174,10 +171,8 @@ const FormBuilder = ({ setAppDarkMode }) => {
       formsData[state.currentForm.id] = state.currentForm;
       localStorage.setItem('formBuilderForms', JSON.stringify(formsData));
       
-      // Show save notification
       setShowSaveNotification(true);
       
-      // Hide notification after 3 seconds
       setTimeout(() => {
         setShowSaveNotification(false);
       }, 3000);
@@ -221,28 +216,21 @@ const FormBuilder = ({ setAppDarkMode }) => {
     }
     
     try {
-      // Create template key from name (lowercase, no spaces)
       const templateKey = templateName.toLowerCase().replace(/\s+/g, '_');
       
-      // Create template object
       const newTemplate = {
         name: templateName,
         fields: state.currentForm.fields
       };
       
-      // Load existing custom templates
       const customTemplates = JSON.parse(localStorage.getItem('customFormTemplates') || '{}');
       
-      // Add new template
       customTemplates[templateKey] = newTemplate;
       
-      // Save back to localStorage
       localStorage.setItem('customFormTemplates', JSON.stringify(customTemplates));
       
-      // Add to in-memory templates
       FORM_TEMPLATES[templateKey] = newTemplate;
       
-      // Close modal and show confirmation
       setShowSaveTemplateModal(false);
       setTemplateName('');
       alert(`Template "${templateName}" saved successfully!`);
@@ -294,20 +282,20 @@ const FormBuilder = ({ setAppDarkMode }) => {
         ? 'bg-gray-900 text-gray-100' 
         : 'bg-gray-50 text-gray-900'
     }`}>
-      {/* Modern Header */}
+      {/* Header */}
       <header className={`relative px-6 py-4 ${
         darkMode 
           ? 'bg-gray-900 border-b border-gray-700/50' 
           : 'bg-white border-b border-gray-200'
       }`}>
-        {/* Background Pattern */}
+        {/* Background */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[#111828]"></div>
         </div>
         
         <div className="relative flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            {/* Logo/Brand */}
+            {/* Logo */}
             <div className="flex items-center space-x-3">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg shadow-purple-500/25`}>
                 <FileText size={20} className="text-white" />

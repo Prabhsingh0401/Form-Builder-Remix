@@ -5,7 +5,6 @@ const FormCanvas = ({ form, dispatch, selectedField, setSelectedField, darkMode 
   const [draggedOver, setDraggedOver] = useState(null);
   const [isBrowser, setIsBrowser] = useState(false);
   
-  // Set isBrowser to true once component mounts (client-side only)
   useEffect(() => {
     setIsBrowser(true);
   }, []);

@@ -112,7 +112,7 @@ const FormPreview = ({ form, previewMode, darkMode }) => {
               </div>
             )}
             
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="mt-8 pt-6 border-gray-200 dark:border-gray-700">
               <button className={`w-full py-3 px-6 rounded-xl font-medium text-white transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg ${
                 darkMode 
                   ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 hover:shadow-purple-500/20' 

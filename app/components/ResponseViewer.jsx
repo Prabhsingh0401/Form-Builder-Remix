@@ -15,12 +15,10 @@ const ResponseViewer = ({ darkMode, setDarkMode, onBack }) => {
       const formData = JSON.parse(localStorage.getItem('formBuilderForms') || '{}');
       const sharedForms = JSON.parse(localStorage.getItem('sharedForms') || '{}');
       
-      // Combine both regular forms and shared forms
       const allForms = { ...formData, ...sharedForms };
       setForms(allForms);
       setFormResponses(storedResponses);
       
-      // If there's a selected form, load its responses
       if (selectedFormId) {
         setResponses(storedResponses[selectedFormId] || []);
         setForm(allForms[selectedFormId]);
@@ -183,7 +181,6 @@ const ResponseViewer = ({ darkMode, setDarkMode, onBack }) => {
     );
   }
 
-  // If a form is selected, show its responses
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
       <header className={`px-6 py-4 ${

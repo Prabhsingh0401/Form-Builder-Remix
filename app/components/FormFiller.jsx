@@ -54,7 +54,6 @@ const FormFiller = ({ formId, initialDarkMode = false }) => {
         // Show save notification
         setShowSaveNotification(true);
         
-        // Hide notification after 3 seconds
         setTimeout(() => {
           setShowSaveNotification(false);
         }, 3000);
@@ -66,7 +65,6 @@ const FormFiller = ({ formId, initialDarkMode = false }) => {
     return () => clearTimeout(autoSave);
   }, [responses, formId, form]);
 
-  // Generate unique response ID
   const generateResponseId = () => {
     return 'resp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
   };
@@ -122,7 +120,6 @@ const FormFiller = ({ formId, initialDarkMode = false }) => {
       setResponseId(uniqueResponseId);
       
       try {
-        // Save response to localStorage with unique ID
         const formResponses = JSON.parse(localStorage.getItem('formResponses') || '{}');
         if (!formResponses[formId]) {
           formResponses[formId] = [];
@@ -140,7 +137,6 @@ const FormFiller = ({ formId, initialDarkMode = false }) => {
         formResponses[formId].push(responseData);
         localStorage.setItem('formResponses', JSON.stringify(formResponses));
         
-        // Clear saved progress after successful submission
         const savedProgress = JSON.parse(localStorage.getItem('formFillerProgress') || '{}');
         delete savedProgress[formId];
         localStorage.setItem('formFillerProgress', JSON.stringify(savedProgress));
@@ -148,7 +144,6 @@ const FormFiller = ({ formId, initialDarkMode = false }) => {
         console.warn('Failed to save response or clear progress:', error);
       }
       
-      // Simulate submission delay
       setTimeout(() => {
         setIsSubmitting(false);
         setSubmitted(true);
